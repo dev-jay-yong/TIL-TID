@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script type="text/babel">
+        function Btn({text, fontSize = 18}){ // props로 받을 변수들을 설정 받음
+            return <button 
+            style={{
+                backgroundColor:"tomato",
+                color: "white",
+                padding: "10px 20px",
+                border: 0,
+                borderRadius: 10,
+                fontSize,
+            }}
+            >
+            {text}</button>
+        }
+        Btn.propTypes = {
+            text: PropTypes.string.isRequired,
+            fontSize: PropTypes.number
+        } // props value 타입을 여기서 검사하도록 할 수 있음 (html 자체의 에러는 X 단지 react가 타입이 맞는지 검증 후 경고를 날려줌)
+
+        function App() {
+            return (
+                <div>
+                    <Btn text="Save Changes" fontSize={18}/> 
+                    <Btn text="Continue" />
+                </div>
+                // BTN함수에 PROPS를 넘김으로써 style 및 텍스트를 설정함
+            );
+        };
+        ReactDOM.render(<App />, root);
+    </script>
+</html>

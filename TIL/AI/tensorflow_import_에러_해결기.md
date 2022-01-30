@@ -33,8 +33,57 @@ numpy-1.18.5, grpcio-1.33.2, h5py-2.10.0, scipy-1.5.4
 분명.. stack overflow 와 매우 똑똑해보이시는 개발자분은 이렇게해서 성공을 했는데...
 나는 왜인지 <b>실패</b>했다 ㅠㅠㅠㅠ
 
-~~우선 오늘은 서울에서 광주까지 내려오는데 체력을 너무 많이 썻으므로 이 문제는 내일의 용은재에게 맡기는걸로..~~
+~~우선 오늘은 서울에서 광주까지 내려오는데 체력을 너무 많이 썻으므로 이 문제는 내일의 용은재에게 맡기는걸로.. (1월 28일)~~
+
+그렇다.. 오늘의 용은재(1월 30일)도 결국 해결하지 못했다.
+
+우선 나와 동일한 이슈로 [apple/tensorflow](https://github.com/apple/tensorflow_macos/issues/270) 에 이슈를 남긴 것과 답변을 참고해서 수정을 해보았다.
+1. version이 아닌 __version__ 호출하기 => 이미 그렇게 하고 있었으나 실패하였다.
+2. [m1용 tensorflow를 설치하여 사용해보기](https://www.youtube.com/watch?v=6W8pjnW65Q8)
+
+동영상에 나온데로 m1용 tensorflow를 설치한 결과 아래와 같이 import 에러가 발생한다. ~~다른 사람들은 저렇게 해결한거같은데 왜 나만 ㅠㅠ~~
+```bash
+/Users/yong-eunjae/Desktop/TimeseriesProject/venv/bin/python /Users/yong-eunjae/Desktop/TimeseriesProject/study/test0001.py
+Traceback (most recent call last):
+  File "/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/pywrap_tensorflow.py", line 64, in <module>
+    from tensorflow.python._pywrap_tensorflow_internal import *
+ImportError: dlopen(/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so, 6): no suitable image found.  Did find:
+	/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so: mach-o, but wrong architecture
+	/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so: mach-o, but wrong architecture
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/yong-eunjae/Desktop/TimeseriesProject/study/test0001.py", line 1, in <module>
+    import tensorflow as tf
+  File "/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/__init__.py", line 41, in <module>
+    from tensorflow.python.tools import module_util as _module_util
+  File "/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/__init__.py", line 39, in <module>
+    from tensorflow.python import pywrap_tensorflow as _pywrap_tensorflow
+  File "/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/pywrap_tensorflow.py", line 83, in <module>
+    raise ImportError(msg)
+ImportError: Traceback (most recent call last):
+  File "/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/pywrap_tensorflow.py", line 64, in <module>
+    from tensorflow.python._pywrap_tensorflow_internal import *
+ImportError: dlopen(/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so, 6): no suitable image found.  Did find:
+	/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so: mach-o, but wrong architecture
+	/Users/yong-eunjae/Desktop/TimeseriesProject/venv/lib/python3.8/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so: mach-o, but wrong architecture
+
+
+Failed to load the native TensorFlow runtime.
+
+See https://www.tensorflow.org/install/errors
+
+for some common reasons and solutions.  Include the entire stack trace
+above this error message when asking for help.
+
+Process finished with exit code 1
+```
+이쯤되면 그냥 설날 끝나고 서울에 올라가서 데스크탑으로 마저 공부하는게 맞는 거 같지만.. 여기서 포기하기엔 내 자존심이 허락해주지 않기때문에 어떻게든 다시 방법을 찾아서 해결 할 것이다.
+~~2일차 해결 일지 끝~~
 
 출처1 - [tensorflow git](https://github.com/tensorflow/tensorflow/issues/46628) <br>
 출처2 - [ashcode](https://hashcode.co.kr/questions/12647/m1-%EB%A7%A5%EB%B6%81-%ED%8C%8C%EC%9D%B4%EC%B0%B8%EC%97%90-python-tensorflow%EC%84%A4%EC%B9%98-%EB%B2%84%EC%A0%84-%EB%AC%B8%EC%9D%98) <br>
 출처3 - [CPUU님 개발블로그](https://cpuu.postype.com/post/9091007/) <br>
+출처4 - [apple/tensorflow에 올라온 나와 동일 해보이는 이슈](https://github.com/apple/tensorflow_macos/issues/270) <br>
+출처5 - [m1용 tensorflow 설치 하는 법](https://www.youtube.com/watch?v=6W8pjnW65Q8) <br>

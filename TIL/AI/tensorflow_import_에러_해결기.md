@@ -82,8 +82,32 @@ Process finished with exit code 1
 이쯤되면 그냥 설날 끝나고 서울에 올라가서 데스크탑으로 마저 공부하는게 맞는 거 같지만.. 여기서 포기하기엔 내 자존심이 허락해주지 않기때문에 어떻게든 다시 방법을 찾아서 해결 할 것이다.
 ~~2일차 해결 일지 끝~~
 
+---
+#### 3일차 도전... 그리고 엔딩
+3일차만에 드디어 성공을 했다. 우선 mac으로는 conda 없이 안될거 같아 결국 conda를 깔았다.. 그리고 아래의 동작들을 순서대로 수행해보았다.
+
+---
+* **install Xcode**
+  * 앱스토어에서 Xcode를 다운받는다.
+* **Miniforge3-MacOSX-arm64.sh 파일을 다운받는다**
+  * 다운받는 곳 : [https://github.com/conda-forge/miniforge](https://github.com/conda-forge/miniforge)
+* **Create Env (가상환경을 만들어준다.)**
+  * conda create -n tensorflow_env python==3.9 -y
+  * conda activate tensorflow_env
+* **Install Tensorflow**
+  * conda install -c apple tensorflow-deps
+  * pip install tensorflow-macos
+  * pip install tensorflow-metal
+
+---
+간단한 위 4개의 동작을 모두 수행한다면 놀랍게도 m1 mac에서도 tensorflow 호출이 매우 잘된다! ~~이걸 몰라서 그동안 허비한 시간이..~~
+그래도 우여곡절끝에 해결해서 뿌듯하고 빨리 tensorflow 공부를 하고 싶다는 동기부여를 가진체 글을 마무리 해본다.
+
+
 출처1 - [tensorflow git](https://github.com/tensorflow/tensorflow/issues/46628) <br>
 출처2 - [ashcode](https://hashcode.co.kr/questions/12647/m1-%EB%A7%A5%EB%B6%81-%ED%8C%8C%EC%9D%B4%EC%B0%B8%EC%97%90-python-tensorflow%EC%84%A4%EC%B9%98-%EB%B2%84%EC%A0%84-%EB%AC%B8%EC%9D%98) <br>
 출처3 - [CPUU님 개발블로그](https://cpuu.postype.com/post/9091007/) <br>
 출처4 - [apple/tensorflow에 올라온 나와 동일 해보이는 이슈](https://github.com/apple/tensorflow_macos/issues/270) <br>
 출처5 - [m1용 tensorflow 설치 하는 법](https://www.youtube.com/watch?v=6W8pjnW65Q8) <br>
+출처6 - [멈춤보단 천천히라도님 기술블로그](https://webnautes.tistory.com/1639) <br>
+출처7 - [v.esc님 기술블로그](https://velog.io/@esc/Mac-M1-Monterey-Tensorflow) <br>

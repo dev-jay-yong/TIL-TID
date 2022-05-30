@@ -14,5 +14,10 @@ More information: https://developers.google.com/protocol-buffers/docs/news/2022-
 하지만 에러문구를 자세히 봐보니 <b>"1. Downgrade the protobuf package to 3.20.x or lower."</b> 문구가 보였고 설마하고 다시 버전을 낮춰서 깔아보니 해결이 되었다!
 갑자기 4점대 버전으로 업그레이드 된게 문제인듯 하다. 아래 명령어를 실행하면 정상적으로 tensorflow 실행이 가능하다. 
 
+```shell
+pip uninstall protobuf
+pip install protobuf==3.20.1
+```
+
 ---
 ### 오늘의 교훈 - 에러문구를 잘 보자

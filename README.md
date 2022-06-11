@@ -1,4 +1,4 @@
-# Today I Learned - Today I Developed - Today I Writed
+# Today I Learned - Today I Developed - Today I Wroted
 
 ------------------
 

@@ -8,3 +8,6 @@
 
 용은재 개발자의 포트폴리오를 보고싶다면
 [<b>여기를 클릭해주세요!</b>](https://aluminum-shaker-fbe.notion.site/_-eed9f096e74b44159ef0a4fa5cac882d)
+
+용은재 개발자에게 이런 점을 더 공부했으면 한다 또는 이런 내용을 정리해주었으면 한다 라는게 있다면
+편하게 jayyong.dev@gmail.com 으로 연락주세요!

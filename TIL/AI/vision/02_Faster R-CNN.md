@@ -56,3 +56,13 @@ selective search를 사용하면 end-to-end로 학습이 불가능하고, 실시
   - Extracting RoI using selective search
   - Seleteing sub-window for pooling
   - Performing max pooling for each sub-window
+
+---
+###Faster R-CNN VS Fast R-CNN
+![Fast-Rcnn](assets/Fast-rcnn%20아키텍쳐.png)
+
+Fast R-CNN은 위 이미지에서 RoI projection 부분에서 아직 Selective search를 사용하여 연산이 매우 느림<br>
+하지만 Faster R-CNN은 이러한 부분까지 Region Propsal을 딥러닝을 이용하여 구현하였음.
+
+![Faster-Rcnn 메인 피규어](assets/Faster-rcnn%20아키텍쳐.png)
+

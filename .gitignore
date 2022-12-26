@@ -6,3 +6,4 @@ package-lock.json
 node_modules/
 TID/react-for-study-window/build
 venv
+*.pyc
